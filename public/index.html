@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-div">
+        <div class="center-div" id="centerdv">
+   
+        </div>
+    </div>
+
+    <script>
+
+        const cdv=document.getElementById('centerdv');
+
+
+        fetch('https://Jsonplaceholder.typicode.com/photos?_limit=20').then((apidata)=>{
+           return apidata.json()
+
+        }).then((jsondata)=>{
+
+
+
+            jsondata.map((val)=>{
+
+         let imag=document.createElement('img');
+             imag.src=val.url;
+            cdv.appendChild(imag);
+
+                console.log(val.url)
+                
+            })
+        })
+    </script>
+</body>
+</html>
